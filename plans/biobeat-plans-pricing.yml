@@ -1,0 +1,82 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Biobeat
+providerId: biobeat
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Remote Patient Monitoring
+- RPM
+- Wearables
+- Partner Gated
+- Plans
+description: >-
+  Biobeat does not publish a public price list, and there is no self-serve
+  developer plan. The core offering is a device + cloud patient-management
+  subscription sold to hospitals, health systems, clinics, and home/RPM
+  programs. Programmatic data access is offered as a PAID ADD-ON on top of that
+  subscription - it enables downloading raw vital-sign measurement data for
+  clinical records and research, and supports EMR/EHR integration. All pricing is
+  contact-sales and negotiated per organization. Biobeat data also reaches care
+  teams through integration partners (e.g. Current Health / Best Buy Health,
+  Datos Health, Impilo) rather than a direct public API.
+notes: >-
+  No public pricing was found for either the platform subscription or the API
+  add-on. The tiers below are qualitative and reflect the access model, not
+  reconciled rates. Verify current terms directly with Biobeat sales.
+sources:
+- https://www.bio-beat.com/
+- https://impilo.health/blog/revolutionizing-heart-health-a-deep-dive-into-biobeat-s-rpm-solutions/
+- https://www.datos-health.com/biobeat-partner/
+plans:
+- id: biobeat-platform-subscription
+  name: Monitoring Platform Subscription
+  type: enterprise
+  description: >-
+    Device (disposable chest-monitor and/or reusable wrist-monitor) plus access
+    to Biobeat's HIPAA/GDPR-compliant cloud patient management platform for
+    clinicians. Sold per organization/program. Contact sales.
+  entries:
+  - label: Platform Subscription
+    name: platform_subscription
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Wearable Devices (Chest / Wrist Monitor)
+  - name: Cloud Patient Management Platform
+  - name: Real-Time Data, Trends and Alerts
+  - name: HIPAA and GDPR Compliance
+- id: biobeat-api-add-on
+  name: API / Data Access Add-On
+  type: enterprise
+  description: >-
+    Paid add-on layered on the platform subscription. Enables downloading raw
+    vital-sign measurement data for maintaining clinical histories and research,
+    and supports EMR/EHR integration. Access, credentials, and documentation are
+    provided under a partner agreement. No public API reference; contact sales.
+  entries:
+  - label: API Add-On
+    name: api_add_on
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales (paid add-on)
+    userMultiplied: false
+  elements:
+  - name: Raw Measurement Data Download
+  - name: EMR / EHR Integration Support
+  - name: Partner-Gated Access and Credentials
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

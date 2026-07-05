@@ -1,0 +1,97 @@
+aid: biobeat
+name: Biobeat
+review:
+  question: Does Biobeat expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-05'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Biobeat does not publish any public API
+    surface - REST, SSE, or WebSocket. Its wearables stream vital-sign data to
+    Biobeat's own cloud patient management platform over the vendor's internal
+    device-to-cloud channel, which is not publicly documented. The only public
+    programmatic access described anywhere is a paid "API add-on" for downloading
+    raw measurement data (a batch/export style capability) and EMR integration,
+    both delivered under partner agreement. There is no documented server-push
+    transport on any Biobeat public API to model.
+findings:
+  summary: |
+    Biobeat does not publish a documented public WebSocket API - nor, in fact,
+    any documented self-serve public API of any protocol. Biobeat Technologies
+    is an Israeli med-tech company whose remote patient monitoring platform pairs
+    a disposable PPG chest-monitor and a reusable PPG wrist-monitor that
+    continuously measure up to 13 vital signs (including FDA-cleared cuffless
+    blood pressure, SpO2, pulse rate, respiratory rate, temperature, stroke
+    volume, cardiac output, and one-lead ECG). Devices transmit to Biobeat's
+    HIPAA/GDPR-compliant cloud patient management platform (regional tenants such
+    as remote-monitoring.us.bio-beat.cloud and remote-monitoring.eu.bio-beat.cloud),
+    where clinicians see real-time readings, trends, and alerts. Programmatic
+    access exists only as a partner-gated PAID ADD-ON that lets customers download
+    raw measurement data for clinical histories and research, plus EMR/EHR
+    integration. No developer portal, API reference, OpenAPI, base URL, or auth
+    scheme is published. No realtime, bidirectional, or streaming WebSocket
+    (ws:// or wss://) endpoint is documented anywhere on Biobeat's public
+    properties as of the review date.
+  accessModel: |
+    Partner-gated / enterprise. Access to Biobeat data programmatically requires a
+    commercial relationship (the "API add-on") or use of an integration partner
+    (Current Health / Best Buy Health, Datos Health, Impilo). Pricing is
+    contact-sales; no public price list.
+  endpointsModeled: true
+  endpointsModeledNote: |
+    The API entries in apis.yml (Patients, Devices, Vital Signs Measurements,
+    Alerts) and the api.us.bio-beat.cloud base URL are LOGICAL MODELS inferred
+    from Biobeat's public product descriptions. No endpoint paths, request/response
+    schemas, or authentication details are confirmed from public documentation, so
+    none were fabricated as a concrete API surface.
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: >-
+        No public REST API reference is published. A paid "API add-on" for raw
+        data download and EMR integration exists under partner agreement, but its
+        endpoints, base URL, and auth are not publicly documented.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: >-
+        No WebSocket endpoint is documented on any Biobeat public property. Device
+        telemetry reaches Biobeat's cloud over an internal, undocumented channel.
+    - protocol: SSE
+      scheme: https
+      documented: false
+      note: No Server-Sent Events transport is documented on any public Biobeat API.
+  endpointsConfirmedRest: []
+sources:
+  - url: https://www.bio-beat.com/
+    type: Website
+    note: Product/marketing site. No API, developer, or docs links found.
+  - url: https://remote-monitoring.us.bio-beat.cloud/
+    type: Portal
+    note: Authenticated clinician patient-management tenant (US region). No public API/docs.
+  - url: https://il.linkedin.com/company/biobeat-ltd.
+    type: LinkedIn
+    note: Company profile - RPM health-AI platform, chest-monitor + wrist-monitor, 13 parameters.
+  - url: https://impilo.health/blog/revolutionizing-heart-health-a-deep-dive-into-biobeat-s-rpm-solutions/
+    type: Article
+    note: >-
+      Third-party integrator writeup describing Biobeat's API add-on for raw data
+      download and the need to build custom EMR interfaces from that export.
+  - url: https://www.datos-health.com/biobeat-partner/
+    type: Article
+    note: Integration partner (Datos Health) - Biobeat data reaches care teams via partners, not a public API.
+  - url: https://www.prnewswire.com/news-releases/fda-clears-the-biobeat-remote-patient-monitoring-device-and-platform-for-additional-vital-signs-301511494.html
+    type: Article
+    note: FDA clearance for additional vital signs; confirms parameter set and platform.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket (or any documented public) protocol surface exists. Biobeat's
+    public developer footprint is a partner-gated paid API add-on with no published
+    reference. The apis.yml entries were kept as explicitly modeled logical
+    resources (endpointsModeled: true) rather than a fabricated concrete API, and
+    no AsyncAPI document was created because there is no documented server-push
+    transport on any Biobeat public API to model.

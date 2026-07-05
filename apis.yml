@@ -1,0 +1,124 @@
+aid: biobeat
+url: https://raw.githubusercontent.com/api-evangelist/biobeat/refs/heads/main/apis.yml
+name: Biobeat
+kind: company
+description: Biobeat Technologies is an Israeli med-tech company whose remote patient
+  monitoring (RPM) health-AI platform pairs a disposable short-term chest-monitor and
+  a reusable long-term wrist-monitor - both using a photoplethysmography (PPG) sensor
+  - to continuously track up to 13 vital signs, including FDA-cleared cuffless blood
+  pressure, pulse rate, respiratory rate, blood oxygen saturation, temperature, stroke
+  volume, cardiac output, and one-lead ECG (chest-monitor). Readings stream to Biobeat's
+  HIPAA- and GDPR-compliant, cloud-based patient management platform, where clinicians
+  view real-time data, trends, and configurable alerts. Biobeat offers programmatic
+  data access and EMR/EHR integration as a paid add-on for hospitals, health systems,
+  and research partners; there is no publicly documented self-serve developer API.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Remote Patient Monitoring
+- RPM
+- Wearables
+- Vital Signs
+- Cuffless Blood Pressure
+- Digital Health
+- Medical Devices
+- PPG
+- Partner Gated
+created: '2026-07-05'
+modified: '2026-07-05'
+specificationVersion: '0.19'
+apis:
+- aid: biobeat:biobeat-patients-api
+  name: Biobeat Patients API
+  tags:
+  - Patients
+  - Enrollment
+  - RPM
+  - Modeled
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.bio-beat.com/
+  baseURL: https://api.us.bio-beat.cloud
+  properties:
+  - url: https://www.bio-beat.com/
+    type: Website
+  - url: https://remote-monitoring.us.bio-beat.cloud/
+    type: Portal
+  description: Modeled resource for enrolling and managing monitored patients on the
+    Biobeat patient management platform - create, list, and update patient records,
+    assign devices, and set per-patient alarm limits. Endpoints are MODELED from public
+    product descriptions; Biobeat exposes programmatic access only as a partner-gated
+    paid add-on and does not publish self-serve API reference documentation.
+- aid: biobeat:biobeat-devices-api
+  name: Biobeat Devices API
+  tags:
+  - Devices
+  - Wearables
+  - Chest Monitor
+  - Wrist Monitor
+  - Modeled
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.bio-beat.com/
+  baseURL: https://api.us.bio-beat.cloud
+  properties:
+  - url: https://www.bio-beat.com/
+    type: Website
+  - url: https://remote-monitoring.us.bio-beat.cloud/
+    type: Portal
+  description: Modeled resource for provisioning and managing Biobeat wearable devices -
+    the disposable chest-monitor and the reusable wrist-monitor - including registration,
+    assignment to a patient, and status/battery lifecycle. Endpoints are MODELED; no
+    public API reference is published.
+- aid: biobeat:biobeat-measurements-api
+  name: Biobeat Vital Signs Measurements API
+  tags:
+  - Vital Signs
+  - Measurements
+  - Blood Pressure
+  - SpO2
+  - ECG
+  - Modeled
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.bio-beat.com/
+  baseURL: https://api.us.bio-beat.cloud
+  properties:
+  - url: https://www.bio-beat.com/
+    type: Website
+  - url: https://remote-monitoring.us.bio-beat.cloud/
+    type: Portal
+  description: Modeled resource for retrieving continuous vital-sign readings collected
+    by Biobeat wearables - cuffless blood pressure, pulse rate, respiratory rate, blood
+    oxygen saturation, temperature, stroke volume, cardiac output, and one-lead ECG.
+    This maps to Biobeat's documented "API add-on" that lets customers download raw
+    measurement data for clinical records and research; the raw export is delivered
+    under a partner agreement and is not a publicly documented endpoint.
+- aid: biobeat:biobeat-alerts-api
+  name: Biobeat Alerts API
+  tags:
+  - Alerts
+  - Thresholds
+  - Deterioration
+  - Modeled
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.bio-beat.com/
+  baseURL: https://api.us.bio-beat.cloud
+  properties:
+  - url: https://www.bio-beat.com/
+    type: Website
+  - url: https://remote-monitoring.us.bio-beat.cloud/
+    type: Portal
+  description: Modeled resource for the alerts Biobeat raises when a patient's readings
+    cross configured alarm limits or its health-AI flags early deterioration. Covers
+    listing active alerts and per-patient threshold configuration. Endpoints are MODELED;
+    Biobeat surfaces alerts in its clinician dashboard and does not publish a self-serve
+    alerts API.
+common:
+- type: LinkedIn
+  url: https://il.linkedin.com/company/biobeat-ltd.
+- type: Website
+  url: https://www.bio-beat.com/
+- type: Portal
+  url: https://remote-monitoring.us.bio-beat.cloud/
+- type: Plans
+  url: plans/biobeat-plans-pricing.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
