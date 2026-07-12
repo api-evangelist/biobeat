@@ -111,6 +111,8 @@ apis:
     Biobeat surfaces alerts in its clinician dashboard and does not publish a self-serve
     alerts API.
 common:
+- type: DomainSecurity
+  url: security/biobeat-domain-security.yml
 - type: LinkedIn
   url: https://il.linkedin.com/company/biobeat-ltd.
 - type: Website
