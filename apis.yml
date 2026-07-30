@@ -12,7 +12,19 @@ description: Biobeat Technologies is an Israeli med-tech company whose remote pa
   view real-time data, trends, and configurable alerts. Biobeat offers programmatic
   data access and EMR/EHR integration as a paid add-on for hospitals, health systems,
   and research partners; there is no publicly documented self-serve developer API.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Paid
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/biobeat.png
 tags:
 - Remote Patient Monitoring
 - RPM
