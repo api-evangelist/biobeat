@@ -12,6 +12,17 @@ description: Biobeat Technologies is an Israeli med-tech company whose remote pa
   view real-time data, trends, and configurable alerts. Biobeat offers programmatic
   data access and EMR/EHR integration as a paid add-on for hospitals, health systems,
   and research partners; there is no publicly documented self-serve developer API.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: unknown
