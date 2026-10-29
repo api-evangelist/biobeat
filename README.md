@@ -1,4 +1,4 @@
-# Biobeat (biobeat)
+# Biobeat
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,78 +64,92 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Biobeat Technologies Ltd. is an Israeli med-tech company (founded 2016, Petah Tikva) whose remote patient monitoring (RPM) health-AI platform pairs a disposable short-term **chest-monitor** and a reusable long-term **wrist-monitor** - both built on a photoplethysmography (PPG) sensor - to continuously track up to 13 vital signs. Biobeat's wearables were the first FDA-cleared devices for cuffless, non-invasive, PPG-based blood pressure monitoring, and are also CE Mark certified. Readings stream to Biobeat's HIPAA- and GDPR-compliant, cloud-based patient management platform, where clinicians view real-time data, trends, and configurable alerts across many patients at once.
+Biobeat Technologies is an Israeli med-tech company whose remote patient monitoring (RPM) health-AI platform pairs a disposable short-term chest-monitor and a reusable long-term wrist-monitor - both using a photoplethysmography (PPG) sensor - to continuously track up to 13 vital signs, including FDA-cleared cuffless blood pressure, pulse rate, respiratory rate, blood oxygen saturation, temperature, stroke volume, cardiac output, and one-lead ECG (chest-monitor). Readings stream to Biobeat's HIPAA- and GDPR-compliant, cloud-based patient management platform, where clinicians view real-time data, trends, and configurable alerts. Biobeat offers programmatic data access and EMR/EHR integration as a paid add-on for hospitals, health systems, and research partners; there is no publicly documented self-serve developer API.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/biobeat/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/biobeat/refs/heads/main/apis.yml)
+**Areas:** Remote Patient Monitoring · RPM · Wearables · Vital Signs · Cuffless Blood Pressure · Digital Health · Medical Devices · PPG
 
-## Access Model - Please Read
+## Biobeat on APIs.io
 
-**Biobeat does not publish a self-serve public developer API.** There is no developer portal, no public API reference, no OpenAPI, and no published base URL or authentication scheme.
+Everything profiled for Biobeat is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/biobeat/](https://apis.io/providers/biobeat/)** — or go straight to one of the APIs or properties below.
 
-What is real and documented in public materials:
+### APIs (4)
 
-- Biobeat offers programmatic data access as a **paid add-on**. Multiple public sources describe an "API add-on" that lets a customer **download raw measurement data** for maintaining clinical histories and for research.
-- Patient data can **sync into a hospital EMR/EHR system**. Public materials note the raw export is not immediately turnkey - a health service needs its own programming/analytics resources (or a partner) to build interfaces into their EMR.
-- The clinician-facing platform is delivered as regional cloud tenants (for example `remote-monitoring.us.bio-beat.cloud` and `remote-monitoring.eu.bio-beat.cloud`), behind authenticated login.
-- Biobeat data also reaches care teams through **integration partners** rather than a direct public API - e.g. Current Health (Best Buy Health), Datos Health, and Impilo.
+- [Biobeat Patients API](https://apis.io/apis/biobeat/biobeat-patients-api/) — Modeled resource for enrolling and managing monitored patients on the Biobeat patient management platform - create, list, and update patient records, assign…
+- [Biobeat Devices API](https://apis.io/apis/biobeat/biobeat-devices-api/) — Modeled resource for provisioning and managing Biobeat wearable devices - the disposable chest-monitor and the reusable wrist-monitor - including…
+- [Biobeat Vital Signs Measurements API](https://apis.io/apis/biobeat/biobeat-measurements-api/) — Modeled resource for retrieving continuous vital-sign readings collected by Biobeat wearables - cuffless blood pressure, pulse rate, respiratory rate, blood…
+- [Biobeat Alerts API](https://apis.io/apis/biobeat/biobeat-alerts-api/) — Modeled resource for the alerts Biobeat raises when a patient's readings cross configured alarm limits or its health-AI flags early deterioration. Covers…
 
-Because access is partner-gated, the API entries in `apis.yml` are **logical, modeled resources** (Patients, Devices, Vital Signs Measurements, Alerts) inferred from Biobeat's public product descriptions. Endpoint paths, the `api.us.bio-beat.cloud` base URL, request/response shapes, and auth are **modeled, not confirmed** - do not treat them as a contract. To obtain real API access, credentials, and documentation, contact Biobeat directly.
+### Published properties
 
-## Tags
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- Remote Patient Monitoring
-- RPM
-- Wearables
-- Vital Signs
-- Cuffless Blood Pressure
-- Digital Health
-- Medical Devices
-- PPG
-- Partner Gated
+#### Security (1)
 
-## Timestamps
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Created:** 2026-07-05
-- **Modified:** 2026-07-05
+- [Biobeat Domain Security](https://apis.io/security/biobeat/biobeat-domain-security/)
 
-## APIs (Modeled)
+#### Plans and pricing (1)
 
-### Biobeat Patients API
+Published plans, tiers and prices.
 
-Modeled resource for enrolling and managing monitored patients on the Biobeat patient management platform - create, list, and update patient records, assign devices, and set per-patient alarm limits. Endpoints are modeled; access is a partner-gated paid add-on.
+- [Biobeat Plans Pricing](https://apis.io/plans/biobeat/biobeat-plans-pricing/)
 
-- **Human URL:** [https://www.bio-beat.com/](https://www.bio-beat.com/)
-- **Base URL (modeled):** `https://api.us.bio-beat.cloud`
+## Where to find this API
 
-### Biobeat Devices API
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-Modeled resource for provisioning and managing Biobeat wearable devices - the disposable chest-monitor and the reusable wrist-monitor - including registration, patient assignment, and status/battery lifecycle. Endpoints are modeled.
-
-- **Human URL:** [https://www.bio-beat.com/](https://www.bio-beat.com/)
-- **Base URL (modeled):** `https://api.us.bio-beat.cloud`
-
-### Biobeat Vital Signs Measurements API
-
-Modeled resource for retrieving continuous vital-sign readings - cuffless blood pressure, pulse rate, respiratory rate, blood oxygen saturation, temperature, stroke volume, cardiac output, and one-lead ECG. Maps to Biobeat's documented "API add-on" for downloading raw measurement data, delivered under a partner agreement.
-
-- **Human URL:** [https://www.bio-beat.com/](https://www.bio-beat.com/)
-- **Base URL (modeled):** `https://api.us.bio-beat.cloud`
-
-### Biobeat Alerts API
-
-Modeled resource for the alerts Biobeat raises when readings cross configured alarm limits or its health-AI flags early deterioration - listing active alerts and per-patient threshold configuration. Endpoints are modeled; alerts are surfaced in Biobeat's clinician dashboard.
-
-- **Human URL:** [https://www.bio-beat.com/](https://www.bio-beat.com/)
-- **Base URL (modeled):** `https://api.us.bio-beat.cloud`
-
-## Common Properties
-
-- [LinkedIn](https://il.linkedin.com/company/biobeat-ltd.)
 - [Website](https://www.bio-beat.com/)
-- [Portal](https://remote-monitoring.us.bio-beat.cloud/)
-- [Plans](plans/biobeat-plans-pricing.yml)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 9.0** — minimal · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 5.3 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 4.7** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/biobeat/](https://apis.io/providers/biobeat/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Biobeat: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/biobeat/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
